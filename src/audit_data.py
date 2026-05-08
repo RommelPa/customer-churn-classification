@@ -119,7 +119,7 @@ def audit_data(data: pd.DataFrame) -> None:
         print(data[column].describe())
 
     print("\n10. Categorical cardinality")
-    categorical_columns = data.select_dtypes(include=["object"]).columns.tolist()
+    categorical_columns = data.select_dtypes(include=["object", "string"]).columns.tolist()
     categorical_cardinality = (
         data[categorical_columns]
         .nunique(dropna=False)
